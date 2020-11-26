@@ -38,7 +38,7 @@ spring:
     enabled: true
 
 server:
-  port: 8080
+  port: ${playground.ports.http}
   servlet:
     context-path: "/"
   error:
