@@ -1,0 +1,153 @@
+# ----------------------------------------------------------------------------------------------------------------------
+# Playground
+# ----------------------------------------------------------------------------------------------------------------------
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: playground
+  annotations:
+    istio-injection: enabled
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: local-harbor
+  namespace: playground
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: "eyJhdXRocyI6eyIxOTIuMTY4Ljk5LjExNSI6eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJQYXNzd29yZDAxISIsImVtYWlsIjoieWluZ3podW9AdnZoY2MuY29tIiwiYXV0aCI6IllXUnRhVzQ2VUdGemMzZHZjbVF3TVNFPSJ9fX0="
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-files
+  namespace: playground
+data:
+  readme: |
+    这个项目仅仅用来演示和验证。
+  the-hocon: |
+    author = "应卓"
+---
+
+apiVersion: v1
+kind: ServiceAccount
+imagePullSecrets:
+  - name: local-harbor
+metadata:
+  namespace: playground
+  name: default
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: playground
+  namespace: playground
+  annotations:
+    com.github.yingzhuo/created-by: yingzhuo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: playground
+  paused: false
+  minReadySeconds: 20
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: playground
+    spec:
+      serviceAccountName: default
+      volumes:
+        - name: log
+          emptyDir: {}
+        - name: k8s-config
+          configMap:
+            name: config-files
+            items:
+              - key: "readme"
+                path: "README.txt"
+              - key: "the-hocon"
+                path: "k8s.conf"
+      restartPolicy: Always
+      containers:
+        - name: core
+          image: "192.168.99.115/yingzhuo/playground"
+          imagePullPolicy: Always
+          readinessProbe:
+            initialDelaySeconds: 8
+            timeoutSeconds: 5
+            periodSeconds: 10
+            httpGet:
+              scheme: HTTP
+              path: "/actuator/health"
+              port: 8080
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - name: log
+              mountPath: "/var/log/"
+              readOnly: false
+            - name: k8s-config
+              mountPath: "/home/app/config/"
+              readOnly: true
+        - name: filebeat
+          image: "registry.cn-shanghai.aliyuncs.com/yingzhuo/filebeat:5.6.16"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "LOG_PATH"
+              value: "/var/log/*.json"
+            - name: "ES_HOSTS"
+              value: "192.168.99.114:9200"
+            - name: "ES_INDEX"
+              value: "playground-%{+yyyy-MM-dd}"
+          volumeMounts:
+            - name: log
+              mountPath: "/var/log/"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: playground
+  namespace: playground
+  annotations:
+    com.github.yingzhuo/created-by: "应卓"
+    # prometheus.io/scrape: "true"
+    # prometheus.io/path: "/actuator/prometheus"
+    # prometheus.io/port: "8080"
+spec:
+  selector:
+    app: playground
+  type: ClusterIP
+  ports:
+    - name: http
+      targetPort: 8080
+      port: 8080
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: playground
+  namespace: playground
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: playground.k8s.io
+      http:
+        paths:
+          - backend:
+              serviceName: playground
+              servicePort: 8080
+---

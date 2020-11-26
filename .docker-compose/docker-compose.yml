@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  playground:
+    image: "192.168.99.115/yingzhuo/playground"
+    container_name: "playground"
+    hostname: "playground"
+    restart: "always"
+    ports:
+      - "8080:8080"
+    networks:
+      - playground-cluster
+
+networks:
+  playground-cluster:
+    driver: bridge
