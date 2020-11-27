@@ -1,0 +1,15 @@
+[Unit]
+Description=Playground server
+Documentation=https://github.com/yingzhuo/playground
+Requires=network.target
+After=network.target
+
+[Service]
+User=root
+Type=simple
+EnvironmentFile=/opt/playground/playground.conf
+ExecStart=/opt/java-8/bin/java -Djava.security.egd=file:/dev/./urandom -jar /opt/playground/playground.jar
+KillSignal=15
+
+[Install]
+WantedBy=multi-user.target
