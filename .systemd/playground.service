@@ -6,6 +6,7 @@ After=network.target
 
 [Service]
 User=root
+Group=root
 Type=simple
 EnvironmentFile=/opt/playground/playground.conf
 ExecStart=/opt/java-8/bin/java -Djava.security.egd=file:/dev/./urandom -jar /opt/playground/playground.jar
