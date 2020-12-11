@@ -8,4 +8,4 @@
 logging:
   file:
     name: "playground"
-    path: "/var/log"
+    path: "/var/log/playground"

@@ -21,9 +21,9 @@
 
         <!-- tool + framework -->
         <spring.boot.version>2.4.0</spring.boot.version>
-        <spring.version>5.3.1</spring.version>
+        <spring.version>5.3.2</spring.version>
         <jackson.version>2.11.3</jackson.version>
-        <carnival.version>1.7.17</carnival.version>
+        <carnival.version>1.7.18</carnival.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>
@@ -307,6 +307,13 @@
                 <version>1.5.1</version>
             </dependency>
 
+            <!-- logback-appender-for-flume -->
+            <dependency>
+                <groupId>com.github.yingzhuo</groupId>
+                <artifactId>logback-flume-appender</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+
             <!-- carnival -->
             <dependency>
                 <groupId>com.github.yingzhuo</groupId>
@@ -382,19 +389,19 @@
             <dependency>
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
-                <version>6.4</version>
+                <version>6.5</version>
             </dependency>
 
             <!-- prometheus -->
             <dependency>
                 <groupId>io.micrometer</groupId>
                 <artifactId>micrometer-core</artifactId>
-                <version>1.6.1</version>
+                <version>1.6.2</version>
             </dependency>
             <dependency>
                 <groupId>io.micrometer</groupId>
                 <artifactId>micrometer-registry-prometheus</artifactId>
-                <version>1.6.1</version>
+                <version>1.6.2</version>
             </dependency>
 
             <!-- byte-buddy -->
@@ -532,10 +539,10 @@
             <artifactId>jackson-module-scala_2.13</artifactId>
         </dependency>
 
-        <!-- logstash -->
+        <!-- logback-appender-for-flume -->
         <dependency>
-            <groupId>net.logstash.logback</groupId>
-            <artifactId>logstash-logback-encoder</artifactId>
+            <groupId>com.github.yingzhuo</groupId>
+            <artifactId>logback-flume-appender</artifactId>
         </dependency>
     </dependencies>
 
