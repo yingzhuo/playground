@@ -3,7 +3,7 @@
 
     <appender name="FLUME" class="com.github.yingzhuo.logback.flume.FlumeLogstashV1Appender">
         <flumeAgents>
-            10.211.55.3:4141
+            192.168.99.127:4141
         </flumeAgents>
         <flumeProperties>
             connect-timeout=4000;
@@ -12,9 +12,9 @@
         <batchSize>100</batchSize>
         <reportingWindow>1000</reportingWindow>
         <additionalAvroHeaders>
-            myHeader = myValue
+            logtype = flow
         </additionalAvroHeaders>
-        <application>My Application</application>
+        <application>playground</application>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - \(%file:%line\) - %message%n%ex</pattern>
         </layout>
