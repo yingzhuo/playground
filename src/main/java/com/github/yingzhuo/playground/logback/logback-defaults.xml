@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <included>
 
-    <appender name="FLUME" class="com.github.yingzhuo.logback.flume.FlumeLogstashV1Appender">
+    <appender name="FLUME_B1" class="com.github.yingzhuo.logback.flume.FlumeAvroAppender">
         <flumeAgents>
             192.168.99.127:4141
         </flumeAgents>
@@ -11,12 +11,33 @@
         </flumeProperties>
         <batchSize>100</batchSize>
         <reportingWindow>1000</reportingWindow>
-        <additionalAvroHeaders>
-            logtype = flow
-        </additionalAvroHeaders>
-        <application>playground</application>
+        <headers>
+            <application>playground</application>
+            <tier>playground</tier>
+            <type>business-1</type>
+        </headers>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - \(%file:%line\) - %message%n%ex</pattern>
+            <pattern>%message%n%ex</pattern>
+        </layout>
+    </appender>
+
+    <appender name="FLUME_B2" class="com.github.yingzhuo.logback.flume.FlumeAvroAppender">
+        <flumeAgents>
+            192.168.99.127:4141
+        </flumeAgents>
+        <flumeProperties>
+            connect-timeout=4000;
+            request-timeout=8000
+        </flumeProperties>
+        <batchSize>100</batchSize>
+        <reportingWindow>1000</reportingWindow>
+        <headers>
+            <application>playground</application>
+            <tier>playground</tier>
+            <type>business-2</type>
+        </headers>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%message%n%ex</pattern>
         </layout>
     </appender>
 

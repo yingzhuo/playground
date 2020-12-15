@@ -38,7 +38,12 @@
     <!-- 业务日志 -->
     <logger name="BUSINESS_1" additivity="false" level="trace">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FLUME"/>
+        <appender-ref ref="FLUME_B1"/>
+    </logger>
+
+    <logger name="BUSINESS_2" additivity="false" level="trace">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FLUME_B2"/>
     </logger>
 
 </configuration>
