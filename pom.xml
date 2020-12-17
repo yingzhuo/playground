@@ -307,13 +307,6 @@
                 <version>1.5.1</version>
             </dependency>
 
-            <!-- logback-appender-for-flume -->
-            <dependency>
-                <groupId>com.github.yingzhuo</groupId>
-                <artifactId>logback-flume-appender</artifactId>
-                <version>0.2.1</version>
-            </dependency>
-
             <!-- carnival -->
             <dependency>
                 <groupId>com.github.yingzhuo</groupId>
@@ -537,12 +530,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-scala_2.13</artifactId>
-        </dependency>
-
-        <!-- logback-appender-for-flume -->
-        <dependency>
-            <groupId>com.github.yingzhuo</groupId>
-            <artifactId>logback-flume-appender</artifactId>
         </dependency>
     </dependencies>
 

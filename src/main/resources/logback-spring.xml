@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 
-    <include resource="com/github/yingzhuo/playground/logback/logback-defaults.xml"/>
-
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}]%-5level %logger{72}[%L] - %msg%n</pattern>
@@ -11,7 +9,7 @@
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <append>false</append>
-        <file>${LOG_PATH}/debug/${LOG_FILE}.log</file>
+        <file>${LOG_PATH}/${LOG_FILE}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_PATH}/${LOG_FILE}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
             <maxHistory>7</maxHistory>
@@ -34,16 +32,5 @@
     <logger name="io.micrometer" additivity="true" level="info"/>
     <logger name="org.jboss.logging" additivity="true" level="warn"/>
     <logger name="com.github.yingzhuo.playground" additivity="true" level="trace"/>
-
-    <!-- 业务日志 -->
-    <logger name="BUSINESS_1" additivity="false" level="trace">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FLUME_B1"/>
-    </logger>
-
-    <logger name="BUSINESS_2" additivity="false" level="trace">
-        <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FLUME_B2"/>
-    </logger>
 
 </configuration>
