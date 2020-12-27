@@ -352,6 +352,13 @@
                 <version>1.4.1</version>
             </dependency>
 
+            <!-- flume -->
+            <dependency>
+                <groupId>com.github.yingzhuo</groupId>
+                <artifactId>logback-flume-appender</artifactId>
+                <version>0.2.1</version>
+            </dependency>
+
             <!-- scala -->
             <dependency>
                 <groupId>org.scala-lang</groupId>
@@ -362,6 +369,11 @@
                 <groupId>org.scala-lang</groupId>
                 <artifactId>scala-reflect</artifactId>
                 <version>${scala.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.scala-lang.modules</groupId>
+                <artifactId>scala-java8-compat_2.13</artifactId>
+                <version>0.9.1</version>
             </dependency>
 
             <!-- slf4j -->
@@ -470,6 +482,10 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-reflect</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-java8-compat_2.13</artifactId>
+        </dependency>
 
         <!-- spring-boot -->
         <dependency>
@@ -530,6 +546,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-scala_2.13</artifactId>
+        </dependency>
+
+        <!-- flume -->
+        <dependency>
+            <groupId>com.github.yingzhuo</groupId>
+            <artifactId>logback-flume-appender</artifactId>
         </dependency>
     </dependencies>
 
@@ -613,8 +635,18 @@
                 <version>4.4.0</version>
                 <executions>
                     <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
                         <goals>
+                            <goal>add-source</goal>
                             <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
                         </goals>
                     </execution>
                 </executions>
