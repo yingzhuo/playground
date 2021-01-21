@@ -20,9 +20,9 @@
         <scala.version>2.13.4</scala.version>
 
         <!-- tool + framework -->
-        <spring.boot.version>2.4.1</spring.boot.version>
-        <spring.version>5.3.2</spring.version>
-        <jackson.version>2.12.0</jackson.version>
+        <spring.boot.version>2.4.2</spring.boot.version>
+        <spring.version>5.3.3</spring.version>
+        <jackson.version>2.12.1</jackson.version>
         <carnival.version>1.7.18</carnival.version>
 
         <!-- configuration -->
