@@ -5,10 +5,10 @@ no-default:
 	@echo "no default target"
 
 build-jar:
-	@mvn -f $(CURDIR)/pom.xml clean package -P NonLayeredJar -D version=$(version)
+	@mvn -f $(CURDIR)/pom.xml clean package -P NonLayeredJar -D placed.version=$(version)
 
 build-image:
-	@mvn -f $(CURDIR)/pom.xml clean package -P LayeredJar -D version=$(version)
+	@mvn -f $(CURDIR)/pom.xml clean package -P LayeredJar -D placed.version=$(version)
 	@docker image build --tag ${image}:latest $(CURDIR)/target/docker-context/
 
 push-image: build-image

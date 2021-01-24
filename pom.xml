@@ -10,7 +10,7 @@
 
     <properties>
         <!-- version -->
-        <version>unknown</version>
+        <placed.version>unknown</placed.version>
 
         <!-- encoding -->
         <encoding>UTF-8</encoding>
@@ -394,31 +394,31 @@
             <dependency>
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
-                <version>6.5</version>
+                <version>6.6</version>
             </dependency>
 
             <!-- prometheus -->
             <dependency>
                 <groupId>io.micrometer</groupId>
                 <artifactId>micrometer-core</artifactId>
-                <version>1.6.2</version>
+                <version>1.6.3</version>
             </dependency>
             <dependency>
                 <groupId>io.micrometer</groupId>
                 <artifactId>micrometer-registry-prometheus</artifactId>
-                <version>1.6.2</version>
+                <version>1.6.3</version>
             </dependency>
 
             <!-- byte-buddy -->
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.10.18</version>
+                <version>1.10.19</version>
             </dependency>
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy-agent</artifactId>
-                <version>1.10.18</version>
+                <version>1.10.19</version>
             </dependency>
 
             <!-- snakeyaml -->
@@ -432,7 +432,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>30.0-jre</version>
+                <version>30.1-jre</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -556,7 +556,7 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}-${version}</finalName>
+        <finalName>${project.artifactId}-${placed.version}</finalName>
 
         <resources>
             <resource>
@@ -662,7 +662,7 @@
                     <archive>
                         <manifestEntries>
                             <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                            <Implementation-Version>${version}</Implementation-Version>
+                            <Implementation-Version>${placed.version}</Implementation-Version>
                         </manifestEntries>
                     </archive>
                 </configuration>

@@ -9,7 +9,7 @@ User=root
 Group=root
 Type=simple
 EnvironmentFile=/opt/playground/playground.conf
-ExecStart=/opt/java-8/bin/java \
+ExecStart=/var/lib/java8/bin/java \
     -Xmx128M -Xms128M \
     -Djava.security.egd=file:/dev/./urandom \
     -jar /opt/playground/playground.jar
