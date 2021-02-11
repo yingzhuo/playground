@@ -23,7 +23,7 @@
         <spring.boot.version>2.4.2</spring.boot.version>
         <spring.version>5.3.3</spring.version>
         <jackson.version>2.12.1</jackson.version>
-        <carnival.version>1.7.18</carnival.version>
+        <carnival.version>1.7.19</carnival.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>
@@ -352,13 +352,6 @@
                 <version>1.4.1</version>
             </dependency>
 
-            <!-- flume -->
-            <dependency>
-                <groupId>com.github.yingzhuo</groupId>
-                <artifactId>logback-flume-appender</artifactId>
-                <version>0.2.2</version>
-            </dependency>
-
             <!-- scala -->
             <dependency>
                 <groupId>org.scala-lang</groupId>
@@ -546,12 +539,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-scala_2.13</artifactId>
-        </dependency>
-
-        <!-- flume -->
-        <dependency>
-            <groupId>com.github.yingzhuo</groupId>
-            <artifactId>logback-flume-appender</artifactId>
         </dependency>
     </dependencies>
 
