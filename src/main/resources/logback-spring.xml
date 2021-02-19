@@ -7,48 +7,8 @@
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <append>false</append>
-        <file>${LOG_PATH}/${LOG_FILE}.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/${LOG_FILE}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxHistory>7</maxHistory>
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}]%-5level %logger{72}[%L] - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <appender name="FLUME" class="com.github.yingzhuo.logback.flume.FlumeAvroAppender">
-        <flumeAgents>
-            192.168.99.127:4141,
-            192.168.99.128:4141,
-            192.168.99.129:4141
-        </flumeAgents>
-        <flumeProperties>
-            connect-timeout=4000;
-            request-timeout=8000
-        </flumeProperties>
-        <batchSize>100</batchSize>
-        <reportingWindow>1000</reportingWindow>
-        <headers>
-            <application>playground</application>
-            <type>demo</type>
-        </headers>
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%message%n</pattern>
-        </layout>
-        <description>
-            这里的文字说明将被忽略
-        </description>
-    </appender>
-
     <root level="debug">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FILE"/>
     </root>
 
     <logger name="org.springframework" additivity="true" level="info"/>
@@ -56,9 +16,5 @@
     <logger name="io.micrometer" additivity="true" level="info"/>
     <logger name="org.jboss.logging" additivity="true" level="warn"/>
     <logger name="com.github.yingzhuo.playground" additivity="true" level="trace"/>
-
-    <logger name="flume" additivity="true" level="trace">
-        <appender-ref ref="FLUME"/>
-    </logger>
 
 </configuration>
