@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # 预构建
 # ----------------------------------------------------------------------------------------------------------------------
-ARG BASE_IMG=registry.cn-shanghai.aliyuncs.com/yingzhuo/java:jre-8
+ARG BASE_IMG=registry.cn-shanghai.aliyuncs.com/yingzhuo/java:jdk-8
 
 FROM $BASE_IMG AS builder
 
