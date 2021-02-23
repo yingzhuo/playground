@@ -20,10 +20,10 @@
         <scala.version>2.13.4</scala.version>
 
         <!-- tool + framework -->
-        <spring.boot.version>2.4.2</spring.boot.version>
+        <spring.boot.version>2.4.3</spring.boot.version>
         <spring.version>5.3.4</spring.version>
         <jackson.version>2.12.1</jackson.version>
-        <carnival.version>1.7.19</carnival.version>
+        <carnival.version>1.7.20</carnival.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>

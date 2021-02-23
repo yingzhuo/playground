@@ -10,3 +10,5 @@ exec gosu app:app java \
   -Djava.io.tmpdir=/var/tmp/ \
   org.springframework.boot.loader.JarLauncher \
   "$@"
+
+exit 0
