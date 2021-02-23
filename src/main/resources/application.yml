@@ -18,7 +18,7 @@ spring:
     location: banner.txt
   jackson:
     locale: "zh_CN"
-    time-zone: "${APP_TIMEZONE:Asia/Shanghai}"
+    time-zone: "Asia/Shanghai"
     date-format: "yyyy-MM-dd HH:mm:ss.SSS"
     default-property-inclusion: always
     serialization:
@@ -38,7 +38,7 @@ spring:
     enabled: false
 
 server:
-  port: ${playground.ports.http}
+  port: 8080
   servlet:
     context-path: "/"
   error:
