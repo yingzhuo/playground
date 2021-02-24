@@ -4,7 +4,7 @@ import com.github.yingzhuo.playground.service.DateService
 import org.springframework.web.bind.annotation._
 
 @RestController
-protected class DateController private(dateService: DateService) {
+private[controller] class DateController private(dateService: DateService) {
 
   @GetMapping(path = Array("/now"))
   def now(@RequestParam(name = "pattern", required = false) pattern: String): Map[String, AnyRef] = {

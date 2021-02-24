@@ -1,12 +1,12 @@
 package com.github.yingzhuo.playground.service
 
-import org.apache.commons.lang3.time.{DateFormatUtils => DateFormat}
 import org.springframework.stereotype.Service
 
 @Service
-private class DateServiceImpl extends AnyRef with DateService {
+private[service] class DateServiceImpl extends AnyRef with DateService {
 
   override def now(pattern: String): String = {
+    import org.apache.commons.lang3.time.{DateFormatUtils => DateFormat}
     DateFormat.format(System.currentTimeMillis(), pattern)
   }
 

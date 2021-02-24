@@ -6,7 +6,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler
 
 @Configuration
 @EnableScheduling
-protected class ApplicationBootScheduler {
+private[playground] class ApplicationBootScheduler {
 
   @Bean
   def threadPoolTaskScheduler(): ThreadPoolTaskScheduler = {

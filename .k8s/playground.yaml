@@ -67,7 +67,7 @@ spec:
       serviceAccountName: default
       volumes:
         - name: log
-          emptyDir: {}
+          emptyDir: { }
         - name: k8s-config
           configMap:
             name: config-files
