@@ -6,5 +6,4 @@ import org.springframework.context.annotation.{Configuration, ImportResource}
 @Configuration
 @ConfigurationPropertiesScan(basePackages = Array(BasePackage))
 @ImportResource(locations = Array("classpath*:spring/*.xml"))
-private[playground] class ApplicationBootBean {
-}
+private[playground] class ApplicationBootBean

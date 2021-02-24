@@ -1,4 +1,3 @@
 package com.github.yingzhuo.playground
 
-package object service {
-}
+package object service
