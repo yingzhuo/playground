@@ -12,8 +12,7 @@
     </root>
 
     <logger name="org.springframework" additivity="true" level="info"/>
-    <logger name="org.hibernate.validator" additivity="true" level="info"/>
-    <logger name="io.micrometer" additivity="true" level="info"/>
+    <logger name="org.hibernate.validator" additivity="true" level="warn"/>
     <logger name="org.jboss.logging" additivity="true" level="warn"/>
     <logger name="com.github.yingzhuo.playground" additivity="true" level="trace"/>
 

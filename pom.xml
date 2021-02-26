@@ -17,7 +17,7 @@
 
         <!-- language -->
         <java.version>1.8</java.version>
-        <scala.version>2.13.4</scala.version>
+        <scala.version>2.13.5</scala.version>
 
         <!-- tool + framework -->
         <spring.boot.version>2.4.3</spring.boot.version>

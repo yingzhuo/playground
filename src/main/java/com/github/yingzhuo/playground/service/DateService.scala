@@ -1,7 +1,13 @@
 package com.github.yingzhuo.playground.service
 
-trait DateService {
+import com.github.yingzhuo.playground.datetime.DateTimePattern
+import org.springframework.stereotype.Service
 
-  def now(pattern: String): String
+sealed trait DateService {
+  def now(pattern: DateTimePattern): String
+}
 
+@Service
+private[service] class DateServiceImpl extends AnyRef with DateService {
+  override def now(pattern: DateTimePattern): String = pattern.format(System.currentTimeMillis())
 }

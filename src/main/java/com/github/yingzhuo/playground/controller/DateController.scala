@@ -1,5 +1,6 @@
 package com.github.yingzhuo.playground.controller
 
+import com.github.yingzhuo.playground.datetime.DateTimePattern
 import com.github.yingzhuo.playground.service.DateService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation._
@@ -11,12 +12,8 @@ private[controller] class DateController {
   val dateService: DateService = null
 
   @GetMapping(path = Array("/now"))
-  def now(@RequestParam(name = "pattern", required = false) pattern: String): Map[String, AnyRef] = {
-    val p = Option(pattern) match {
-      case Some(x) => x
-      case _ => "yyyy-MM-dd HH:mm:ss"
-    }
-    Map("result" -> dateService.now(p))
-  }
+  def now(): Map[String, AnyRef] = Map(
+    "result" -> dateService.now(DateTimePattern.Default)
+  )
 
 }
