@@ -1,18 +1,20 @@
 package com.github.yingzhuo.playground.datetime
 
-import org.apache.commons.lang3.time.{DateFormatUtils => Format}
+import org.apache.commons.lang3.time.{DateUtils, DateFormatUtils => Format}
 
 import java.util.{Calendar, Date}
 
 sealed trait DateTimePattern extends Serializable {
 
-  abstract def asString: String
+  def asString: String
 
   def format(date: Date): String = Format.format(date, asString)
 
   def format(date: Long): String = Format.format(date, asString)
 
   def format(date: Calendar): String = Format.format(date, asString)
+
+  def parse(str: String): Date = DateUtils.parseDate(str, asString)
 
 }
 

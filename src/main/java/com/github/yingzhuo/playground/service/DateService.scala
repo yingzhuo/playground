@@ -8,6 +8,6 @@ sealed trait DateService {
 }
 
 @Service
-private[service] class DateServiceImpl extends AnyRef with DateService {
+private[service] class DateServiceImpl extends DateService {
   override def now(pattern: DateTimePattern): String = pattern.format(System.currentTimeMillis())
 }

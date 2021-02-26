@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation._
 
 @RestController
-private[controller] class DateController {
-
-  @Autowired
-  val dateService: DateService = null
+private[controller] class DateController @Autowired private(dateService: DateService) {
 
   @GetMapping(path = Array("/now"))
   def now(): Map[String, AnyRef] = Map(
