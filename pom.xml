@@ -306,19 +306,6 @@
                 <version>1.5.1</version>
             </dependency>
 
-            <!-- env -->
-            <dependency>
-                <groupId>com.github.yingzhuo</groupId>
-                <artifactId>spring-boot-stater-env</artifactId>
-                <version>2.0.1</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.moandjiezana.toml</groupId>
-                        <artifactId>toml4j</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
             <!-- scala -->
             <dependency>
                 <groupId>org.scala-lang</groupId>
@@ -459,12 +446,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-
-        <!-- env -->
-        <dependency>
-            <groupId>com.github.yingzhuo</groupId>
-            <artifactId>spring-boot-stater-env</artifactId>
         </dependency>
 
         <!-- jackson -->

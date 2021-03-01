@@ -9,6 +9,9 @@ spring:
       - dev
     include:
       - default
+  config:
+    import:
+      - "optional:classpath:/config/playground.yml"
   aop:
     auto: true
   main:
@@ -89,9 +92,3 @@ management:
       base-path: "/actuator"
       exposure:
         include: "*"
-
-# ----------------------------------------------------------------------------------------------------------------------
-# Carnival
-# ----------------------------------------------------------------------------------------------------------------------
-carnival:
-  troubleshooting: true
