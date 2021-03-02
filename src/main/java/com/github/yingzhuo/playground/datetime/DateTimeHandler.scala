@@ -14,7 +14,7 @@ object DateTimeHandler extends Enumeration {
   val TimeOnly: playground.datetime.DateTimeHandler.DateTimeHandler = DateTimeHandlerVal("HH:mm:ss")
   val DateTime: yingzhuo.playground.datetime.DateTimeHandler.DateTimeHandler = DateTimeHandlerVal("yyyy-MM-dd HH:mm:ss.SSS")
 
-  protected case class DateTimeHandlerVal(pattern: String) {
+  protected case class DateTimeHandlerVal(pattern: String) extends super.Val {
 
     def format(date: Long): String = format(new Date(date))
 
