@@ -11,7 +11,7 @@ spring:
       - default
   config:
     import:
-      - "optional:classpath:/config/playground.yml"
+      - "classpath:/config/playground.yml"
   aop:
     auto: true
   main:
@@ -19,6 +19,9 @@ spring:
     banner-mode: log
     allow-bean-definition-overriding: true
     lazy-initialization: false
+    log-startup-info: true
+    sources:
+      - "classpath*:spring/*.xml"
   banner:
     location: banner.txt
   jackson:
