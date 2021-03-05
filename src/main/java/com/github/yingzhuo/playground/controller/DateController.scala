@@ -1,17 +1,16 @@
 package com.github.yingzhuo.playground.controller
 
-import com.github.yingzhuo.playground.datetime.DateTimeHandler
+import com.github.yingzhuo.playground.json.Json
 import com.github.yingzhuo.playground.service.DateService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation._
 
 @RestController
-private class DateController @Autowired private(dateService: DateService) {
+private class DateController private(dateService: DateService) {
 
   @GetMapping(path = Array("/now"))
-  def now(): Map[String, AnyRef] = {
-    Map(
-      "result" -> dateService.now(DateTimeHandler.DateTime)
+  def now(): Json[Option[String]] = {
+    Json(
+      payload = Option(dateService.now())
     )
   }
 

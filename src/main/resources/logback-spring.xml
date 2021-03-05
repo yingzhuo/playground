@@ -7,13 +7,13 @@
         </encoder>
     </appender>
 
-    <root level="debug">
-        <appender-ref ref="STDOUT"/>
-    </root>
-
     <logger name="org.springframework" additivity="true" level="info"/>
     <logger name="org.hibernate.validator" additivity="true" level="warn"/>
     <logger name="org.jboss.logging" additivity="true" level="warn"/>
     <logger name="com.github.yingzhuo.playground" additivity="true" level="trace"/>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT"/>
+    </root>
 
 </configuration>

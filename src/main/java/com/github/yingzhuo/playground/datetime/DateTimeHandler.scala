@@ -20,6 +20,7 @@ object DateTimeHandler extends Enumeration {
     def format(date: Date): String = dateFormat.format(date)
 
     def parse(source: String): Date = dateFormat.parse(source)
+
   }
 
 }
