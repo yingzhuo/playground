@@ -12,7 +12,6 @@ object DateTimeHandler extends Enumeration {
   val DateTime: DateTimeHandler = DateTimeHandlerVal("yyyy-MM-dd HH:mm:ss.SSS")
 
   protected case class DateTimeHandlerVal(pattern: String) extends super.Val {
-
     private final val dateFormat = new SimpleDateFormat(pattern)
 
     def format(date: Long): String = format(new Date(date))
@@ -20,7 +19,6 @@ object DateTimeHandler extends Enumeration {
     def format(date: Date): String = dateFormat.format(date)
 
     def parse(source: String): Date = dateFormat.parse(source)
-
   }
 
 }

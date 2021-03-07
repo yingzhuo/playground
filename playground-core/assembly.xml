@@ -33,17 +33,26 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/..</directory>
+            <directory>${project.basedir}/../.paw</directory>
+            <outputDirectory>paw</outputDirectory>
+            <includes>
+                <include>**/*.paw</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/</directory>
             <includes>
                 <include>README.*</include>
             </includes>
         </fileSet>
     </fileSets>
 
+    <!--
     <dependencySets>
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
         </dependencySet>
     </dependencySets>
+    -->
 
 </assembly>
