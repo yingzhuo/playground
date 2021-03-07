@@ -28,7 +28,7 @@ COPY --from=builder /tmp/dependencies/ ./
 COPY --from=builder /tmp/spring-boot-loader/ ./
 COPY --from=builder /tmp/snapshot-dependencies/ ./
 COPY --from=builder /tmp/application/ ./
-COPY --chown=root:root ./docker-entrypoint.sh /bin/entrypoint
+COPY --chown=root:root docker-entrypoint.sh /bin/entrypoint
 
 # HEALTHCHECK --interval=10s --timeout=30s --start-period=3s --retries=3 CMD curl --fail http://localhost:8080/actuator/info || exit 1
 
