@@ -144,8 +144,9 @@
                             </descriptorRefs>
                             -->
                             <descriptors>
-                                <descriptor>assembly.xml</descriptor>
+                                <descriptor>src/assembly-bin.xml</descriptor>
                             </descriptors>
+                            <outputDirectory>${project.basedir}/../dist</outputDirectory>
                         </configuration>
                         <executions>
                             <execution>
@@ -172,7 +173,7 @@
         <profile>
             <id>NonLayeredJar</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <jar.layered>false</jar.layered>

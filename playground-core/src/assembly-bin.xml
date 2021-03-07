@@ -5,7 +5,7 @@
     <id>bin</id>
 
     <formats>
-        <format>tar.gz</format>
+        <format>zip</format>
     </formats>
 
     <includeBaseDirectory>false</includeBaseDirectory>
@@ -15,7 +15,7 @@
             <directory>${project.basedir}/target</directory>
             <outputDirectory>jar</outputDirectory>
             <includes>
-                <include>*.jar</include>
+                <include>**/*.jar</include>
             </includes>
         </fileSet>
         <fileSet>
@@ -40,7 +40,7 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/</directory>
+            <directory>${project.basedir}</directory>
             <includes>
                 <include>README.*</include>
             </includes>
