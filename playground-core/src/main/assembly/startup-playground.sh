@@ -3,17 +3,17 @@
 # 启动脚本
 # ----------------------------------------------------------------------------------------------------------------------
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+set -e
+
+BIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+JAR_DIR="$BIN_DIR"/../jar
 
 if [[ "x$JAVA_HOME" == "x" ]]; then
-  echo "环境变量JAVA_HOME没有正确配置"
+  echo "环境变量'JAVA_HOME'没有正确配置"
   exit 1
-else
-  echo "环境变量JAVA_HOME:"
-  echo "$JAVA_HOME"
 fi
 
-cd "${DIR}"/../jar
+cd "${JAR_DIR}" || exit 1
 
 nohup \
   "$JAVA_HOME"/bin/java \
