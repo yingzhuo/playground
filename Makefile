@@ -1,15 +1,22 @@
 version := 1.0.0-$(shell /bin/date '+%Y%m%d%H%M%S')
 image := yingzhuo/playground-core
 
-no-default:
-	@echo "no default target"
+usage:
+	@echo "================================================"
+	@echo "usage    :=> 显示菜单"
+	@echo "dist     :=> 打包"
+	@echo "docker   :=> 构建Docker镜像"
+	@echo "clean    :=> 清理构建产物"
+	@echo "version  :=> 变更项目版本号"
+	@echo "github   :=> 推送源代码到github"
+	@echo "================================================"
 
 dist:
 	@rm -rf $(CURDIR)/dist &> /dev/null || true
-	@mvn -f $(CURDIR)/pom.xml clean package -P"NonLayeredJar,Assembly" -D"placed.version=$(version)"
+	@mvn -f $(CURDIR)/pom.xml clean package -P"Assembly" -D"placed.version=$(version)"
 
 docker:
-	@mvn -f $(CURDIR)/pom.xml clean package -P"LayeredJar,DockerContext" -D"placed.version=$(version)"
+	@mvn -f $(CURDIR)/pom.xml clean package -P"DockerContext" -D"placed.version=$(version)"
 	@docker image build --tag ${image}:${version} $(CURDIR)/playground-core/target/docker-context/
 	@docker image tag ${image}:${version} ${image}:latest
 
@@ -28,4 +35,4 @@ github: clean
 	@git commit -m "$(shell /bin/date "+%F %T")"
 	@git push
 
-.PHONY: no-default dist docker clean github version
+.PHONY: usage dist docker clean version github

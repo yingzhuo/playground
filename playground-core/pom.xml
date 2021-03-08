@@ -99,7 +99,7 @@
                 </executions>
                 <configuration>
                     <layers>
-                        <enabled>${jar.layered}</enabled>
+                        <enabled>true</enabled>
                         <configuration>${project.basedir}/../springboot-layers.xml</configuration>
                     </layers>
                     <excludes>
@@ -153,24 +153,6 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-        <profile>
-            <id>LayeredJar</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <jar.layered>true</jar.layered>
-            </properties>
-        </profile>
-        <profile>
-            <id>NonLayeredJar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <jar.layered>false</jar.layered>
-            </properties>
         </profile>
         <profile>
             <id>DockerContext</id>

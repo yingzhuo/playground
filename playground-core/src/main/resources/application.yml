@@ -70,7 +70,7 @@ logging:
 management:
   endpoint:
     shutdown:
-      enabled: false
+      enabled: true
     health:
       enabled: true
       show-details: always
@@ -95,3 +95,5 @@ management:
       base-path: "/actuator"
       exposure:
         include: "*"
+      path-mapping:
+        shutdown: "_shutdown"
