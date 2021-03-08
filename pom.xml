@@ -37,7 +37,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- THIS -->
+            <!-- playground -->
             <dependency>
                 <groupId>com.github.yingzhuo</groupId>
                 <artifactId>playground-domain</artifactId>

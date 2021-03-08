@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   playground:
-    image: "192.168.99.115/yingzhuo/playground"
+    image: "yingzhuo/playground:latest"
     container_name: "playground"
     hostname: "playground"
     restart: "always"

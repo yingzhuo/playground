@@ -1,6 +1,6 @@
-<assembly xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
-          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.1.0 http://maven.apache.org/xsd/assembly-2.1.0.xsd">
 
     <id>bin</id>
 
@@ -12,6 +12,13 @@
 
     <fileSets>
         <fileSet>
+            <directory>${project.basedir}/src/main/assembly</directory>
+            <outputDirectory>bin</outputDirectory>
+            <includes>
+                <include>**/*.sh</include>
+            </includes>
+        </fileSet>
+        <fileSet>
             <directory>${project.basedir}/target</directory>
             <outputDirectory>jar</outputDirectory>
             <includes>
@@ -20,14 +27,14 @@
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/../.docker-compose</directory>
-            <outputDirectory>docker-compose</outputDirectory>
+            <outputDirectory>dco</outputDirectory>
             <includes>
                 <include>**/*</include>
             </includes>
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/../.k8s</directory>
-            <outputDirectory>kubernetes</outputDirectory>
+            <outputDirectory>k8s</outputDirectory>
             <includes>
                 <include>**/*</include>
             </includes>
@@ -46,13 +53,5 @@
             </includes>
         </fileSet>
     </fileSets>
-
-    <!--
-    <dependencySets>
-        <dependencySet>
-            <outputDirectory>lib</outputDirectory>
-        </dependencySet>
-    </dependencySets>
-    -->
 
 </assembly>

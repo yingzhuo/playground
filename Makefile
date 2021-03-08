@@ -1,13 +1,14 @@
 version := 1.0.0-$(shell /bin/date '+%Y%m%d%H%M%S')
-image := 192.168.99.115/yingzhuo/playground-core
+image := yingzhuo/playground-core
 
 no-default:
 	@echo "no default target"
 
-build-jar:
+dist:
+	@rm -rf $(CURDIR)/dist &> /dev/null || true
 	@mvn -f $(CURDIR)/pom.xml clean package -P"NonLayeredJar,Assembly" -D"placed.version=$(version)"
 
-build-image:
+docker:
 	@mvn -f $(CURDIR)/pom.xml clean package -P"LayeredJar,DockerContext" -D"placed.version=$(version)"
 	@docker image build --tag ${image}:${version} $(CURDIR)/playground-core/target/docker-context/
 	@docker image tag ${image}:${version} ${image}:latest
@@ -19,12 +20,12 @@ clean:
 
 version:
 	@mvn -f $(CURDIR)/pom.xml versions:set
-	@mvn -f $(CURDIR)/pom.xml -N versions:update-child-modules
+	@mvn -f $(CURDIR)/pom.xml versions:update-child-modules -N
 	@mvn -f $(CURDIR)/pom.xml versions:commit
 
-github:
+github: clean
 	@git add .
 	@git commit -m "$(shell /bin/date "+%F %T")"
 	@git push
 
-.PHONY: no-default build-jar build-image clean github version
+.PHONY: no-default dist docker clean github version

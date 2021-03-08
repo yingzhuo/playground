@@ -20,18 +20,6 @@ data:
 ---
 
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: config-files
-  namespace: playground
-data:
-  readme: |
-    这个项目仅仅用来演示和验证。
-  the-hocon: |
-    author = "应卓"
----
-
-apiVersion: v1
 kind: ServiceAccount
 imagePullSecrets:
   - name: local-harbor
@@ -68,18 +56,10 @@ spec:
       volumes:
         - name: log
           emptyDir: { }
-        - name: k8s-config
-          configMap:
-            name: config-files
-            items:
-              - key: "readme"
-                path: "README.txt"
-              - key: "the-hocon"
-                path: "k8s.conf"
       restartPolicy: Always
       containers:
         - name: core
-          image: "192.168.99.115/yingzhuo/playground"
+          image: "yingzhuo/playground"
           imagePullPolicy: Always
           readinessProbe:
             initialDelaySeconds: 8
@@ -96,9 +76,6 @@ spec:
             - name: log
               mountPath: "/var/log/"
               readOnly: false
-            - name: k8s-config
-              mountPath: "/home/app/config/"
-              readOnly: true
         - name: filebeat
           image: "registry.cn-shanghai.aliyuncs.com/yingzhuo/filebeat:5.6.16"
           imagePullPolicy: IfNotPresent
