@@ -34,7 +34,7 @@ COPY --chown=root:root docker-entrypoint.sh /bin/entrypoint
 
 RUN chmod +x /bin/entrypoint
 
-ENV SPRING_PROFILES_ACTIVE=dev
+ENV SPRING_PROFILES_ACTIVE=k8s
 
 EXPOSE 8080
 
