@@ -7,11 +7,12 @@
     <groupId>com.github.yingzhuo</groupId>
     <artifactId>playground</artifactId>
     <version>1.0.0</version>
+    <packaging>pom</packaging>
+
     <modules>
         <module>playground-core</module>
         <module>playground-domain</module>
     </modules>
-    <packaging>pom</packaging>
 
     <properties>
         <!-- encoding -->
@@ -27,7 +28,7 @@
         <!-- tool + framework -->
         <spring.boot.version>2.4.3</spring.boot.version>
         <spring.version>5.3.4</spring.version>
-        <jackson.version>2.12.1</jackson.version>
+        <jackson.version>2.12.2</jackson.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>
