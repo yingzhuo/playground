@@ -119,7 +119,7 @@
 
     <profiles>
         <profile>
-            <id>Assembly</id>
+            <id>dist</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -130,11 +130,6 @@
                         <artifactId>maven-assembly-plugin</artifactId>
                         <version>3.3.0</version>
                         <configuration>
-                            <!--
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                            -->
                             <descriptors>
                                 <descriptor>${project.basedir}/src/main/assembly/bin.xml</descriptor>
                             </descriptors>
@@ -154,8 +149,9 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
-            <id>DockerContext</id>
+            <id>docker</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -164,7 +160,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-antrun-plugin</artifactId>
-                        <version>1.8</version>
+                        <version>3.0.0</version>
                         <executions>
                             <execution>
                                 <id>post-pkg</id>
@@ -178,8 +174,11 @@
                                             <fileset dir="${project.basedir}/src/main/docker">
                                                 <include name="**/*"/>
                                             </fileset>
-                                            <fileset dir="${project.basedir}/target/">
+                                            <fileset dir="${project.basedir}/target">
                                                 <include name="${project.build.finalName}.jar"/>
+                                            </fileset>
+                                            <fileset dir="${project.basedir}">
+                                                <include name="README.*"/>
                                             </fileset>
                                         </copy>
                                         <delete>
