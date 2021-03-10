@@ -27,6 +27,13 @@
             </includes>
         </fileSet>
         <fileSet>
+            <directory>${project.basedir}/src/main/assembly</directory>
+            <outputDirectory>systemd</outputDirectory>
+            <includes>
+                <include>**/*.service</include>
+            </includes>
+        </fileSet>
+        <fileSet>
             <directory>${project.basedir}/../.docker-compose</directory>
             <outputDirectory>dco</outputDirectory>
             <includes>

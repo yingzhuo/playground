@@ -11,7 +11,7 @@ spring:
       - default
   config:
     import:
-      - "classpath:/config/playground.yml"
+      - "optional:classpath:/config/playground.yml"
   aop:
     auto: true
   main:
@@ -61,7 +61,7 @@ server:
 # ----------------------------------------------------------------------------------------------------------------------
 logging:
   file:
-    name: "playground"
+    name: "playground-core"
     path: "/var/log/playground"
 
 # ----------------------------------------------------------------------------------------------------------------------
