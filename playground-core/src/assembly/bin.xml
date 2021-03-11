@@ -13,13 +13,6 @@
 
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}/src/main/assembly</directory>
-            <outputDirectory>bin</outputDirectory>
-            <includes>
-                <include>**/*.sh</include>
-            </includes>
-        </fileSet>
-        <fileSet>
             <directory>${project.basedir}/target</directory>
             <outputDirectory>jar</outputDirectory>
             <includes>
@@ -27,7 +20,14 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/main/assembly</directory>
+            <directory>${project.basedir}/src/assembly</directory>
+            <outputDirectory>bin</outputDirectory>
+            <includes>
+                <include>**/*.sh</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src/assembly</directory>
             <outputDirectory>systemd</outputDirectory>
             <includes>
                 <include>**/*.service</include>

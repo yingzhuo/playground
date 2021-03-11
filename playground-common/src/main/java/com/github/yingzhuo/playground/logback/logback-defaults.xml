@@ -35,6 +35,7 @@
         <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
 
+    <logger name="troubleshooting" additivity="true" level="trace"/>
     <logger name="com.github.yingzhuo.playground" additivity="true" level="trace"/>
     <logger name="org.springframework" additivity="true" level="info"/>
     <logger name="org.hibernate.validator" additivity="true" level="warn"/>

@@ -10,8 +10,8 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>playground-common</module>
         <module>playground-core</module>
-        <module>playground-domain</module>
     </modules>
 
     <properties>
@@ -29,6 +29,7 @@
         <spring.boot.version>2.4.3</spring.boot.version>
         <spring.version>5.3.4</spring.version>
         <jackson.version>2.12.2</jackson.version>
+        <carnival.version>1.8.0</carnival.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>
@@ -41,7 +42,7 @@
             <!-- playground -->
             <dependency>
                 <groupId>com.github.yingzhuo</groupId>
-                <artifactId>playground-domain</artifactId>
+                <artifactId>playground-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
