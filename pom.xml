@@ -29,7 +29,6 @@
         <spring.boot.version>2.4.3</spring.boot.version>
         <spring.version>5.3.4</spring.version>
         <jackson.version>2.12.2</jackson.version>
-        <carnival.version>1.8.0</carnival.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>
@@ -333,12 +332,12 @@
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy</artifactId>
-                <version>1.10.21</version>
+                <version>1.10.22</version>
             </dependency>
             <dependency>
                 <groupId>net.bytebuddy</groupId>
                 <artifactId>byte-buddy-agent</artifactId>
-                <version>1.10.21</version>
+                <version>1.10.22</version>
             </dependency>
 
             <!-- logstash -->
@@ -346,13 +345,6 @@
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>6.6</version>
-            </dependency>
-
-            <!-- snakeyaml -->
-            <dependency>
-                <groupId>org.yaml</groupId>
-                <artifactId>snakeyaml</artifactId>
-                <version>1.28</version>
             </dependency>
 
             <!-- commons -->
@@ -364,7 +356,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.11</version>
+                <version>3.12.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
