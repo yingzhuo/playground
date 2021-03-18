@@ -24,7 +24,7 @@ LABEL maintainer="应卓 <yingzhor@gmail.com>"
 
 WORKDIR /opt
 
-COPY --from=builder /tmp/this-project/ ./
+COPY --from=builder /tmp/internal-dependencies/ ./
 COPY --from=builder /tmp/dependencies/ ./
 COPY --from=builder /tmp/spring-boot-loader/ ./
 COPY --from=builder /tmp/snapshot-dependencies/ ./
