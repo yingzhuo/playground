@@ -4,7 +4,7 @@ image := yingzhuo/playground-core
 usage:
 	@echo "================================================"
 	@echo "usage    :=> 显示菜单"
-	@echo "dist     :=> 打包"
+	@echo "dist     :=> 发布"
 	@echo "docker   :=> 构建Docker镜像"
 	@echo "clean    :=> 清理构建产物"
 	@echo "version  :=> 变更项目版本号"
@@ -23,7 +23,6 @@ docker:
 clean:
 	@mvn -f $(CURDIR)/pom.xml clean &> /dev/null || true
 	@rm -rf $(CURDIR)/dist &> /dev/null || true
-	@docker system prune -a -f &> /dev/null || true
 
 version:
 	@mvn -f $(CURDIR)/pom.xml versions:set

@@ -11,6 +11,9 @@
     </application>
 
     <dependencies>
+        <into layer="this-project">
+            <include>com.github.yingzhuo:playground:*</include>
+        </into>
         <into layer="snapshot-dependencies">
             <include>*:*:*SNAPSHOT</include>
         </into>
@@ -18,6 +21,7 @@
     </dependencies>
 
     <layerOrder>
+        <layer>this-project</layer>
         <layer>dependencies</layer>
         <layer>spring-boot-loader</layer>
         <layer>snapshot-dependencies</layer>

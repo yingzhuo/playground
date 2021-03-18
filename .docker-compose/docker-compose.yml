@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   playground:
-    image: "yingzhuo/playground:latest"
+    image: "yingzhuo/playground-core:latest"
     container_name: "playground"
     hostname: "playground"
     restart: "always"

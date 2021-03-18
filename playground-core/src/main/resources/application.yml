@@ -11,7 +11,7 @@ spring:
       - default
   config:
     import:
-      - "optional:classpath:/config/playground.yml"
+      - "classpath:/config/playground.yml"
   aop:
     auto: true
   main:

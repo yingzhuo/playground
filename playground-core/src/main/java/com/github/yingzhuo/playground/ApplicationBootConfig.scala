@@ -4,8 +4,8 @@ import org.springframework.boot.context.properties.{ConfigurationPropertiesScan,
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-@ConfigurationPropertiesScan(basePackageClasses = Array(
-  classOf[ApplicationBoot]
+@ConfigurationPropertiesScan(basePackages = Array(
+  BasePackage
 ))
 @EnableConfigurationProperties
-private class ApplicationBootConfiguration
+private class ApplicationBootConfig
