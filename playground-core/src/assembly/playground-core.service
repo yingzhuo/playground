@@ -4,8 +4,10 @@ Documentation=https://github.com/yingzhuo/playground
 After=syslog.target
 
 [Service]
-User=yingzhuo
-Group=yingzhuo
+User=root
+Group=root
+Environment="JAVA_HOME=/var/lib/java8"
+EnvironmentFile="/opt/playground/playground-core.env"
 ExecStart=/var/lib/java8/bin/java \
     -Djava.security.egd=file:/dev/./urandom \
     -Duser.timezone="Asia/Shanghai" \

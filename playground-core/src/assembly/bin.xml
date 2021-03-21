@@ -6,7 +6,7 @@
     <id>bin</id>
 
     <formats>
-        <format>tar.gz</format>
+        <format>tgz</format>
     </formats>
 
     <includeBaseDirectory>false</includeBaseDirectory>
@@ -21,16 +21,10 @@
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/src/assembly</directory>
-            <outputDirectory>bin</outputDirectory>
-            <includes>
-                <include>**/*.sh</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>${project.basedir}/src/assembly</directory>
             <outputDirectory>systemd</outputDirectory>
             <includes>
                 <include>**/*.service</include>
+                <include>**/*.env</include>
             </includes>
         </fileSet>
         <fileSet>

@@ -42,6 +42,7 @@
     <logger name="org.jboss.logging" additivity="true" level="warn"/>
     <logger name="org.apache.coyote" additivity="true" level="warn"/>
     <logger name="org.apache.catalina" additivity="true" level="warn"/>
+    <logger name="_org.springframework.web.servlet.HandlerMapping.Mappings" additivity="true" level="info"/>
 
     <root level="debug">
         <appender-ref ref="STDOUT"/>
