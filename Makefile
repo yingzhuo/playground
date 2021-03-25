@@ -3,26 +3,26 @@ image := yingzhuo/playground-core
 
 usage:
 	@echo "================================================"
-	@echo "usage    :=> 显示菜单"
-	@echo "dist     :=> 发布"
-	@echo "docker   :=> 构建Docker镜像"
-	@echo "clean    :=> 清理构建产物"
-	@echo "version  :=> 变更项目版本号"
-	@echo "github   :=> 推送源代码到github"
+	@echo "usage           => 显示菜单"
+	@echo "release-jar     => 发布"
+	@echo "release-docker  => 构建Docker镜像"
+	@echo "clean           => 清理构建产物"
+	@echo "version         => 变更项目版本号"
+	@echo "github          => 推送源代码到github"
 	@echo "================================================"
 
-dist:
+release-jar:
 	@rm -rf $(CURDIR)/dist &> /dev/null || true
 	@mvn -f $(CURDIR)/pom.xml clean package -P"dist" -D"placed.version=$(version)"
 
-docker:
+release-docker:
 	@mvn -f $(CURDIR)/pom.xml clean package -P"docker" -D"placed.version=$(version)"
 	@docker image build --tag ${image}:${version} $(CURDIR)/playground-core/target/docker-context/
 	@docker image tag ${image}:${version} ${image}:latest
 
 clean:
 	@mvn -f $(CURDIR)/pom.xml clean &> /dev/null || true
-	@rm -rf $(CURDIR)/dist &> /dev/null || true
+	@rm -rf $(CURDIR)/release &> /dev/null || true
 
 version:
 	@mvn -f $(CURDIR)/pom.xml versions:set
@@ -34,4 +34,4 @@ github: clean
 	@git commit -m "$(shell /bin/date "+%F %T")"
 	@git push
 
-.PHONY: usage dist docker clean version github
+.PHONY: usage release-jar release-docker clean version github

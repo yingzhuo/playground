@@ -140,7 +140,7 @@
                                 <descriptor>${project.basedir}/src/assembly/bin.xml</descriptor>
                             </descriptors>
                             <appendAssemblyId>true</appendAssemblyId>
-                            <outputDirectory>${project.basedir}/../dist</outputDirectory>
+                            <outputDirectory>${project.basedir}/../release</outputDirectory>
                         </configuration>
                         <executions>
                             <execution>
