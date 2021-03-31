@@ -2,6 +2,15 @@
 # 核心配置
 # ----------------------------------------------------------------------------------------------------------------------
 spring:
+  config:
+    activate:
+      on-profile: dev
+debug: true
+---
+# ----------------------------------------------------------------------------------------------------------------------
+# 核心配置
+# ----------------------------------------------------------------------------------------------------------------------
+spring:
   application:
     name: "playground"
   profiles:
@@ -20,6 +29,8 @@ spring:
     allow-bean-definition-overriding: true
     lazy-initialization: false
     log-startup-info: true
+    cloud-platform: none
+    register-shutdown-hook: true
     sources:
       - "classpath*:spring/*.xml"
   banner:
