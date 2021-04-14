@@ -27,8 +27,8 @@
 
         <!-- tool + framework -->
         <spring.boot.version>2.4.4</spring.boot.version>
-        <spring.version>5.3.5</spring.version>
-        <jackson.version>2.12.2</jackson.version>
+        <spring.version>5.3.6</spring.version>
+        <jackson.version>2.12.3</jackson.version>
 
         <!-- configuration -->
         <maven.test.skip>true</maven.test.skip>
