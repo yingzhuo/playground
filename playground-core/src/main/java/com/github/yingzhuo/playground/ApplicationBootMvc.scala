@@ -6,6 +6,4 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 @Configuration
 @ServletComponentScan
-private class ApplicationBootMvc extends WebMvcConfigurer {
-  
-}
+private class ApplicationBootMvc extends WebMvcConfigurer
