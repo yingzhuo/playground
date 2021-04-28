@@ -19,7 +19,7 @@
         <encoding>UTF-8</encoding>
 
         <!-- version -->
-        <placed.version>x</placed.version>
+        <building.version>dev</building.version>
 
         <!-- language -->
         <java.version>1.8</java.version>
@@ -408,12 +408,20 @@
     </dependencies>
 
     <build>
-        <finalName>${project.artifactId}-${placed.version}</finalName>
+        <finalName>${project.artifactId}-${building.version}</finalName>
 
         <resources>
             <resource>
                 <directory>src/main/java</directory>
                 <filtering>true</filtering>
+                <includes>
+                    <include>**/*.txt</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.yaml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.factories</include>
+                </includes>
                 <excludes>
                     <exclude>**/.gitkeep</exclude>
                     <exclude>**/*.java</exclude>
@@ -425,6 +433,14 @@
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
+                <includes>
+                    <include>**/*.txt</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.yaml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.factories</include>
+                </includes>
                 <excludes>
                     <exclude>**/.gitkeep</exclude>
                     <exclude>**/*.bak</exclude>
@@ -461,7 +477,7 @@
                     <archive>
                         <manifestEntries>
                             <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                            <Implementation-Version>${placed.version}</Implementation-Version>
+                            <Implementation-Version>${building.version}</Implementation-Version>
                         </manifestEntries>
                     </archive>
                 </configuration>

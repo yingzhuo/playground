@@ -13,10 +13,10 @@ usage:
 
 release-jar:
 	@rm -rf $(CURDIR)/dist &> /dev/null || true
-	@mvn -f $(CURDIR)/pom.xml clean package -P"dist" -D"placed.version=$(version)"
+	@mvn -f $(CURDIR)/pom.xml clean package -P"dist" -D"building.version=$(version)"
 
 release-docker:
-	@mvn -f $(CURDIR)/pom.xml clean package -P"docker" -D"placed.version=$(version)"
+	@mvn -f $(CURDIR)/pom.xml clean package -P"docker" -D"building.version=$(version)"
 	@docker image build --tag ${image}:${version} $(CURDIR)/playground-core/target/docker-context/
 	@docker image tag ${image}:${version} ${image}:latest
 

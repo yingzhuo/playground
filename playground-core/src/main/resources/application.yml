@@ -112,3 +112,18 @@ management:
       base-path: "/actuator"
       exposure:
         include: "*"
+
+info:
+  application:
+    group: @project.groupId@
+    name: @project.artifactId@
+    version: @project.version@-@building.version@
+  primary-framework-version:
+    JDK: @java.version@
+    scala: @scala.version@
+    spring-boot: @spring.boot.version@
+    spring: @spring.version@
+    jackson: @jackson.version@
+  authors:
+    - name: "应卓"
+      email: "zhuo.ying@innshine.com"
