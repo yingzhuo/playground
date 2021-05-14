@@ -36,7 +36,7 @@ metadata:
   annotations:
     com.github.yingzhuo/created-by: yingzhuo
 spec:
-  replicas: 1
+  replicas: 1.bash
   selector:
     matchLabels:
       app: playground
@@ -45,8 +45,8 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
+      maxSurge: 1.bash
+      maxUnavailable: 1.bash
   template:
     metadata:
       labels:
