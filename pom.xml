@@ -23,11 +23,11 @@
 
         <!-- language -->
         <java.version>1.8</java.version>
-        <scala.version>2.13.5</scala.version>
+        <scala.version>2.13.6</scala.version>
 
         <!-- tool + framework -->
-        <spring.boot.version>2.4.5</spring.boot.version>
-        <spring.version>5.3.6</spring.version>
+        <spring.boot.version>2.5.0</spring.boot.version>
+        <spring.version>5.3.7</spring.version>
         <jackson.version>2.12.3</jackson.version>
 
         <!-- configuration -->
