@@ -63,11 +63,10 @@
             <artifactId>logstash-logback-encoder</artifactId>
         </dependency>
 
-        <!-- yaml -->
+        <!-- rxjava -->
         <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.28</version>
+            <groupId>io.reactivex.rxjava3</groupId>
+            <artifactId>rxjava</artifactId>
         </dependency>
     </dependencies>
 
